@@ -1,77 +1,26 @@
-import React from "react";
+type Props = {
+  abrirModal: () => void;
+};
 
-interface NavbarProps {
-  onProfileClick?: () => void;
-  onCartClick?: () => void;
-  onCatalogClick?: () => void;
-  onContactsClick?: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({
-  onProfileClick,
-  onCartClick,
-  onCatalogClick,
-  onContactsClick,
-}) => {
+function Navbar({ abrirModal }: Props) {
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>
-        <h2>Mi Tienda</h2>
-      </div>
+    <nav
+      style={{
+        display: "flex",
+        gap: "10px",
+        padding: "15px",
+        backgroundColor: "#1f2937",
+      }}
+    >
+      <button>Catálogo</button>
+      <button>Carrito</button>
+      <button>Contactos</button>
 
-      <div style={styles.menu}>
-        <button style={styles.button} onClick={onCatalogClick}>
-          Catálogo
-        </button>
-
-        <button style={styles.button} onClick={onCartClick}>
-          Carrito
-        </button>
-
-        <button style={styles.button} onClick={onContactsClick}>
-          Contactos
-        </button>
-
-        <button style={styles.profileButton} onClick={onProfileClick}>
-          Perfil
-        </button>
-      </div>
+      <button onClick={abrirModal}>
+        Perfil
+      </button>
     </nav>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1rem 2rem",
-    backgroundColor: "#1f2937",
-    color: "#fff",
-  },
-  logo: {
-    fontWeight: "bold",
-  },
-  menu: {
-    display: "flex",
-    gap: "1rem",
-  },
-  button: {
-    backgroundColor: "#374151",
-    color: "#fff",
-    border: "none",
-    padding: "0.6rem 1rem",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-  profileButton: {
-    backgroundColor: "#2563eb",
-    color: "#fff",
-    border: "none",
-    padding: "0.6rem 1rem",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-};
+}
 
 export default Navbar;

@@ -1,18 +1,17 @@
+import { useState } from "react";
 import Navbar from "./components/navbar";
+import Modal from "./components/Modal";
 
 function App() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-      <Navbar
-        onProfileClick={() => alert("Perfil")}
-        onCartClick={() => alert("Carrito")}
-        onCatalogClick={() => alert("Catálogo")}
-        onContactsClick={() => alert("Contactos")}
-      />
+      <Navbar abrirModal={() => setOpen(true)} />
 
-      <main style={{ padding: "20px" }}>
-        <h1>Bienvenido a la tienda</h1>
-      </main>
+      <h1>Bienvenido a Mi Tienda</h1>
+
+      <Modal abierto={open} cerrarModal={() => setOpen(false)} />
     </>
   );
 }
