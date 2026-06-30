@@ -1,18 +1,14 @@
-import { useState } from "react";
-import Navbar from "./components/navbar";
-import Modal from "./components/Modal";
+import PokemonList from "./components/pokemonlist";
 
 function App() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <>
-      <Navbar abrirModal={() => setOpen(true)} />
+    <div>
+      <h1 style={{ textAlign: "center" }}>
+        Pokédex
+      </h1>
 
-      <h1>Bienvenido a Mi Tienda</h1>
-
-      <Modal abierto={open} cerrarModal={() => setOpen(false)} />
-    </>
+      <PokemonList />
+    </div>
   );
 }
 
